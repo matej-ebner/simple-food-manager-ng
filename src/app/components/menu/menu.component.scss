@@ -1,0 +1,60 @@
+@import "~src/scss/base";
+
+.menu {
+    background: $dark-blue;
+    margin: 0;
+    padding: 0.5em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @include mq-min($lg) {
+        top: 0;
+        bottom: unset;
+    }
+
+    &__title {
+        font-size: 1.2em;
+        color: $white;
+        text-align: center;
+        font-weight: 700;
+
+        @include mq-min($sm) {
+            font-size: 1.4em;
+        }
+
+        &--no-auth-user {
+            flex: 0 0 100%;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: flex-end;
+        flex: 2;
+
+        &__btn {
+            margin: 0 0.3em;
+            font-size: 0.8em;
+
+            @include mq-min($sm) {
+                margin: 0 1em;
+                font-size: 1em;
+            }
+
+            &--active {
+                background: $white;
+                color: $black;
+            }
+
+            &:hover {
+                background: $white;
+                color: $black;
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+<form [formGroup]="loginForm" class="login-form" #f="ngForm">
+
+    <p class="login-form__login-message">Please login</p>
+    <p class="login-form__invalid-cred-message" *ngIf="invalidCredentials">Invalid credentials</p>
+
+    <!-- Name input -->
+    <div class="form-control-wrapper">
+        <input type="text" class="form-control-wrapper__control"
+            [ngClass]="{'form-control-wrapper__control--invalid':invalidCredentials}" formControlName="identifier"
+            placeholder="Username">
+        <div *ngIf="formsService.fieldHasError(loginForm,'identifier')">
+            <span *ngIf="loginForm.get('identifier').errors['required']"
+                class="form-control-wrapper__validation-message">
+                Mandatory field!
+            </span>
+            <span
+                *ngIf="!loginForm.get('identifier').errors['required'] && loginForm.get('identifier').errors['pattern']"
+                class="form-control-wrapper__validation-message">
+                Invalid format!
+            </span>
+        </div>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-control-wrapper">
+        <input type=" password" class="form-control-wrapper__control"
+            [ngClass]="{'form-control-wrapper__control--invalid':invalidCredentials}" formControlName="password"
+            placeholder="Password">
+        <div *ngIf="formsService.fieldHasError(loginForm,'password')">
+            <span *ngIf="loginForm.get('password').errors['required']" class="form-control-wrapper__validation-message">
+                Mandatory field!
+            </span>
+            <span *ngIf="!loginForm.get('password').errors['required'] && loginForm.get('password').errors['pattern']"
+                class="form-control-wrapper__validation-message">
+                Invalid format!
+            </span>
+        </div>
+    </div>
+
+    <div class="login-form__btn-wrapper">
+        <button cdkMonitorSubtreeFocus type="button" (click)="login()" class="info-button login-form__btn-wrapper__btn "
+            [ngClass]="{'login-form__save-btn--active':f.valid}" [attr.disabled]="f.valid ? null : 'disabled'">
+            Save
+        </button>
+    </div>
+
+</form>

@@ -1,0 +1,10 @@
+<div class="articles-table">
+
+    <ng-container *ngIf="articles; else noarticles">
+        <sfm-article-detail *ngFor="let article of articles" [article]="article"></sfm-article-detail>
+    </ng-container>
+
+    <ng-template #noarticles>
+        <p class="articles-table__no-articles">No articles</p>
+    </ng-template>
+</div>

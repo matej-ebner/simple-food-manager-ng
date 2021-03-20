@@ -1,0 +1,35 @@
+@import "~src/scss/base";
+
+@mixin button-common {
+    border: none;
+    border-radius: $common-border-radius;
+    font-weight: 700;
+    padding: 0.5em;
+    outline: none;
+    text-decoration: none;
+
+    &:hover:not(:disabled) {
+        cursor: pointer;
+    }
+}
+
+.blank-button {
+    @include button-common();
+    color: $white;
+}
+
+.red-button {
+    @include button-common();
+    background: $red;
+    color: $white;
+}
+
+.info-button {
+    @include button-common();
+    background: $grey;
+    color: $white;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}

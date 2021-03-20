@@ -1,0 +1,32 @@
+@import "~src/scss/base";
+
+.form-control-wrapper {
+    margin-top: 1em;
+    color: $dark-blue;
+
+    &__control {
+        padding: 0.5em;
+        background: $white;
+        border: 1px solid $black;
+        font-size: 1.1em;
+        border-radius: $common-border-radius;
+
+        &--invalid {
+            border: 1px solid $red;
+        }
+    }
+
+    &__validation-message {
+        color: $red;
+    }
+}
+
+textarea {
+    resize: none;
+    height: 10em;
+}
+
+input[type="datetime-local"]:hover,
+input[type="radio"]:hover {
+    cursor: pointer;
+}

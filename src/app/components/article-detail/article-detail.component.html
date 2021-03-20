@@ -1,0 +1,9 @@
+<div class="article-detail-wrapper">
+    <p class="article-detail-wrapper__data"><b>Name:</b> {{ article.name }} </p>
+    <p class="article-detail-wrapper__data"><b>Price:</b> {{ article.price }} $</p>
+
+    <div class="article-detail-wrapper__action-buttons">
+        <button class="info-button" [routerLink]="['/edit/'+article.id]">Edit</button>
+    </div>
+</div>
+
