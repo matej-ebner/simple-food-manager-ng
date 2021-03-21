@@ -1,0 +1,48 @@
+<form *ngIf="!formSuccessMessage" [formGroup]="articleForm" class="article-form" #f="ngForm">
+
+    <!-- Name input -->
+    <div class="form-control-wrapper">
+        <input type="text" class="form-control-wrapper__control" formControlName="name" placeholder="Name">
+        <div *ngIf="formsService.fieldHasError(articleForm,'name')">
+            <span *ngIf="articleForm.get('name').errors['required']" class="form-control-wrapper__validation-message">
+                Mandatory field!
+            </span>
+            <span *ngIf="!articleForm.get('name').errors['required'] && articleForm.get('name').errors['pattern']"
+                class="form-control-wrapper__validation-message">
+                Invalid format!
+            </span>
+        </div>
+    </div>
+
+    <!-- Price input -->
+    <div class="form-control-wrapper">
+        <input type="number" class="form-control-wrapper__control" formControlName="price" placeholder="Price">
+        <div *ngIf="formsService.fieldHasError(articleForm,'price')">
+            <span *ngIf="articleForm.get('price').errors['required']" class="form-control-wrapper__validation-message">
+                Mandatory field!
+            </span>
+            <span *ngIf="!articleForm.get('price').errors['required'] && articleForm.get('price').errors['pattern']"
+                class="form-control-wrapper__validation-message">
+                Invalid format!
+            </span>
+        </div>
+    </div>
+
+    <div class="article-form__btn-wrapper">
+        <button type="button" (click)="saveArticle()" class="info-button"
+            [ngClass]="{'info-button--invalid':!f.valid}" [attr.disabled]="f.valid ? null : 'disabled'">
+            <span *ngIf="article; else newArticle">Save changes</span>
+            <ng-template #newArticle>
+                Create
+            </ng-template>
+        </button>
+        <button type="button" class="info-button" [routerLink]="['/' + navigationRoutes.DASHBOARD]">
+            Cancel
+        </button>
+    </div>
+
+</form>
+
+<div *ngIf="formSuccessMessage" class="form-success-message">
+    Successfully saved
+</div>

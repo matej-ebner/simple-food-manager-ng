@@ -7,6 +7,7 @@
     padding: 0.5em;
     outline: none;
     text-decoration: none;
+    text-transform: capitalize;
 
     &:hover:not(:disabled) {
         cursor: pointer;
@@ -18,13 +19,18 @@
     color: $white;
 }
 
-.red-button {
+.info-button {
     @include button-common();
-    background: $red;
-    color: $white;
+    background: $white;
+    color: $black;
+
+    &--invalid {
+        background: $black;
+        color: $white;
+    }
 }
 
-.info-button {
+.grey-button {
     @include button-common();
     background: $grey;
     color: $white;

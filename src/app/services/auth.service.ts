@@ -11,17 +11,7 @@ import { UserDTO } from "../interfaces/user-dto.interface";
   providedIn: "root",
 })
 export class AuthService {
-  user: UserDTO = {
-    createdAt: "2017-03-30T14:35:04.815Z",
-    email: "uniqcaster@unicast.com",
-    id: 1,
-    id_ref: "1",
-    lang: "en_US",
-    provider: "local",
-    template: "default",
-    updatedAt: "2017-03-30T14:35:04.865Z",
-    username: "uniqcaster",
-  };
+  user: UserDTO;
 
   constructor(private http: HttpClient) {}
 

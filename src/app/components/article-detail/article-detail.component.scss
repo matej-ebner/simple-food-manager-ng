@@ -1,14 +1,26 @@
 @import "~src/scss/base";
 
+:host {
+    flex: 0 0 100%;
+
+    @include mq-min($md) {
+        flex: 0;
+    }
+}
+
 .article-detail-wrapper {
     margin-top: 1em;
     display: flex;
     flex-direction: column;
-    background: $white;
+    background: $grey;
     padding: 1em;
     border-radius: $common-border-radius;
     margin: 1em;
-    width: 250px;
+    color: $black;
+
+    @include mq-min($md) {
+        width: 270px;
+    }
 
     &__data {
         word-wrap: break-word;

@@ -21,3 +21,23 @@ body {
 .capitalize {
     text-transform: capitalize;
 }
+
+.section-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @include mq-max($lg) {
+        height: 100%;
+    }
+
+    &__subtitle {
+        font-weight: 700;
+        text-align: center;
+
+        @include mq-min($lg) {
+            flex: 0 0 100%;
+        }
+    }
+}

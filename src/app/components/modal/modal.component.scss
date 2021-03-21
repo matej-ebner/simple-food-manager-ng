@@ -22,7 +22,7 @@
     }
 
     &__container {
-        background: $red;
+        background: $dark-blue;
         width: 90%;
         min-height: 200px;
         border-radius: $common-border-radius;
@@ -49,7 +49,6 @@
         padding: 8px;
         border: none;
         border-radius: 50%;
-        background-color: $black;
         cursor: pointer;
         color: $dark-blue;
         z-index: 1;

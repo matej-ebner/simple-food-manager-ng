@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
+import { SpinnerService } from "./spinner.service";
 
 @Injectable({
   providedIn: "root",
@@ -7,17 +8,11 @@ import { Router } from "@angular/router";
 export class ErrorsService {
   errorCode: number;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private spinnerService: SpinnerService) {}
 
   handleError(error) {
-    switch (error.status) {
-      case 404:
-        this.errorCode = 404;
-        break;
-      case 0:
-        this.errorCode = 500;
-        break;
-    }
+    this.errorCode = error.status;
+    this.spinnerService.showSpinner = false;
 
     setTimeout(() => {
       this.router.navigate(["/"]);

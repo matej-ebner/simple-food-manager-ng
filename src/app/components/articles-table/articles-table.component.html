@@ -1,10 +1,9 @@
-<div class="articles-table">
-
-    <ng-container *ngIf="articles; else noarticles">
+<div class="articles-table" *ngIf="articlesListObservable$ | async">
+    <ng-container *ngIf="articles; else noArticles">
         <sfm-article-detail *ngFor="let article of articles" [article]="article"></sfm-article-detail>
     </ng-container>
 
-    <ng-template #noarticles>
+    <ng-template #noArticles>
         <p class="articles-table__no-articles">No articles</p>
     </ng-template>
 </div>

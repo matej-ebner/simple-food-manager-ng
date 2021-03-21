@@ -1,17 +1,17 @@
 <menu class="menu">
     <p class="menu__title"  [ngClass]="{'menu__title--no-auth-user':!authService.user}">Simple food manager</p>
     <div class="menu__buttons" *ngIf="authService.user">
-        <a [routerLink]="['/list']" 
+        <a [routerLink]="['/' + navigationRoutes.DASHBOARD]" 
            class="menu__buttons__btn blank-button" 
-           [class.menu__buttons__btn--active] = "router.url === '/dashboard'"
+           [class.menu__buttons__btn--active] = "router.url === '/' + navigationRoutes.DASHBOARD"
         >
-        List
+        {{navigationRoutes.DASHBOARD}}
         </a>
-        <a [routerLink]="['/new']" 
+        <a [routerLink]="['/' + navigationRoutes.NEW_ARTICLE]" 
            class="menu__buttons__btn blank-button" 
-           [class.menu__buttons__btn--active] = "router.url === '/new'"
+           [class.menu__buttons__btn--active] = "router.url === '/' + navigationRoutes.NEW_ARTICLE"
         >
-        New
+        {{navigationRoutes.NEW_ARTICLE}}
         </a>
     </div>
 </menu>

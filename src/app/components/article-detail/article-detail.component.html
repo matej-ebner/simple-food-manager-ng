@@ -4,6 +4,10 @@
 
     <div class="article-detail-wrapper__action-buttons">
         <button class="info-button" [routerLink]="['/edit/'+article.id]">Edit</button>
+        <button class="info-button" (click)="confirmArticleDeletion = true">Delete</button>
     </div>
 </div>
 
+<sfm-modal *ngIf="confirmArticleDeletion" [questionString]="'Are you sure you want to delete selected article?'"
+    [acceptString]="'Yes'" [declineString]="'No'" (actionConfirmed)="deleteModalAction($event)">
+</sfm-modal>

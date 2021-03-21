@@ -1,0 +1,4 @@
+<section class="section-wrapper">
+   <p class="section-wrapper__subtitle">Edit article</p>
+   <sfm-article-form *ngIf="getArticleObservable$ | async as article" [article]="article"></sfm-article-form>
+</section>

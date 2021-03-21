@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
@@ -9,6 +9,7 @@ import { FormsService } from "src/app/services/forms.service";
 import { AuthService } from "src/app/services/auth.service";
 import { LoginDTO } from "src/app/interfaces/login-dto.interface";
 import { SpinnerService } from "src/app/services/spinner.service";
+import { NavigationRoutes } from "src/app/app-navigation-constants";
 
 @Component({
   selector: "sfm-login-form",
@@ -17,6 +18,7 @@ import { SpinnerService } from "src/app/services/spinner.service";
 })
 export class LoginFormComponent implements OnInit, OnDestroy {
   dictionary = Dictionary;
+  navigationRoutes = NavigationRoutes;
 
   loginForm: FormGroup;
   invalidCredentials = false;
@@ -52,7 +54,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
     this.loginSubscription = this.authService.loginRequest(formData).subscribe(
       (response: LoginDTO) => {
-        this.router.navigate(["/"]);
+        this.router.navigate(["/" + this.navigationRoutes.DASHBOARD]);
         this.spinnerService.showSpinner = false;
       },
       (error) => {
