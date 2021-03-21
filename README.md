@@ -2,8 +2,10 @@ SIMPLE FOOD MANAGER NG
 
 Angular version 10
 
-#Local development build
+##Local development build
+
 ng serve
 
-#Production build
+##Production build
+
 ng build
