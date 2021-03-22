@@ -11,11 +11,14 @@ export class ErrorsService {
   constructor(private router: Router, private spinnerService: SpinnerService) {}
 
   handleError(error) {
-    this.errorCode = error.status;
-    this.spinnerService.showSpinner = false;
+    if (error.status !== 403) {
+      this.errorCode = error.status;
+      this.spinnerService.showSpinner = false;
 
-    setTimeout(() => {
-      this.router.navigate(["/"]);
-    }, 2000);
+      setTimeout(() => {
+        this.router.navigate(["/"]);
+        this.errorCode = undefined;
+      }, 2000);
+    }
   }
 }

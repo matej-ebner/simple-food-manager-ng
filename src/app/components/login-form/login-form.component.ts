@@ -37,11 +37,11 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   private initLoginForm(): void {
     this.loginForm = new FormGroup({
-      identifier: new FormControl("uniqcaster", [
+      identifier: new FormControl(null, [
         Validators.required,
         this.formsService.noEmptySpaceValidator,
       ]),
-      password: new FormControl("cast457", [
+      password: new FormControl(null, [
         Validators.required,
         this.formsService.noEmptySpaceValidator,
       ]),
@@ -58,6 +58,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
         this.spinnerService.showSpinner = false;
       },
       (error) => {
+        this.spinnerService.showSpinner = false;
         if (error.status === this.dictionary.STATUS_403) {
           this.invalidCredentials = true;
         }
